@@ -1,15 +1,27 @@
 // src/pages/Customers.jsx
 import React, {useEffect, useState} from 'react'
-import api from '../api'
+import api from '../api/api.js'
 import DashboardLayout from '../layouts/DashboardLayout'
 import { useToast } from '../components/Toast'
 
 export default function Customers(){
     const [list, setList] = useState([])
+    const [loading, setLoading] = useState(false)
     const [form, setForm] = useState({ name:'', phone:'' })
     const toast = useToast()
+    const token = localStorage.getItem('authtoken')
 
-    useEffect(()=>{ api.getCustomers().then(setList) },[])
+
+    const fetchCustomers = async () => {
+        setLoading(true)
+        try{
+            const data = await api.getCustomers(token)
+            setList(data.data)
+        }catch(err){
+            alert(err?.error || 'Could not fetch')
+        }finally{ setLoading(false) }
+    }
+    useEffect(()=>{ fetchCustomers().then() },[])
 
     const add = async (e)=>{ e.preventDefault(); const r = await api.createCustomer(form); setList([r,...list]); setForm({name:'',phone:''}); toast.push('Customer added') }
     const remove = async (id)=>{ if(!confirm('Delete?')) return; await api.deleteCustomer(id); setList(list.filter(x=>x.id!==id)); toast.push('Deleted') }
