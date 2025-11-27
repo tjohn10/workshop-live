@@ -5,7 +5,7 @@ export default function Sidebar() {
     return (
         <div className="h-screen w-64 bg-gray-900 text-white left-0 top-0 shadow-xl">
             <div className="px-6 py-5 text-2xl font-bold border-b border-gray-700">
-                AutoWorkshop
+                The Graze Enterprises
             </div>
 
             <nav className="mt-6">
