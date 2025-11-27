@@ -1,15 +1,32 @@
-// src/components/Sidebar.jsx
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+
 export default function Sidebar() {
     return (
-        <div className="w-64 h-screen bg-gray-900 text-white p-6">
-            <h2 className="text-2xl font-bold mb-6">AutoMech</h2>
-            <nav className="flex flex-col gap-4">
-                <Link to="/inventory" className="hover:text-blue-400">Inventory</Link>
-                <Link to="/vehicles" className="hover:text-blue-400">Vehicles</Link>
-                <Link to="/customers" className="hover:text-blue-400">Customers</Link>
-                <Link to="/jobs" className="hover:text-blue-400">Jobs</Link>
-                <Link to="/payments" className="hover:text-blue-400">Payments</Link>
+        <div className="h-screen w-64 bg-gray-900 text-white left-0 top-0 shadow-xl">
+            <div className="px-6 py-5 text-2xl font-bold border-b border-gray-700">
+                AutoWorkshop
+            </div>
+
+            <nav className="mt-6">
+                <Link className="block px-6 py-3 hover:bg-gray-700" to="/dashboard">
+                    Dashboard
+                </Link>
+                <Link className="block px-6 py-3 hover:bg-gray-700" to="/inventory">
+                    Inventory
+                </Link>
+                <Link className="block px-6 py-3 hover:bg-gray-700" to="/customers">
+                    Customers
+                </Link>
+                <Link className="block px-6 py-3 hover:bg-gray-700" to="/jobs">
+                    Jobs
+                </Link>
+                <Link className="block px-6 py-3 hover:bg-gray-700" to="/invoices">
+                    Invoices
+                </Link>
+                <Link to="/admin/users" className="block px-6 py-3 hover:bg-gray-700">
+                    Users
+                </Link>
             </nav>
         </div>
     );

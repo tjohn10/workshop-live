@@ -74,5 +74,14 @@ export default {
         request(`/invoices/${id}/pay`, { method: "POST" }),
 
     // ANALYTICS ----------------------------------------------
-    getStats: () => request("/analytics/summary"),
+    getDailyStats: () => request("/invoices/stats/daily"),
+    getMonthlyStats: () => request("/invoices/stats/monthly"),
+    getStats: () => request("/invoices/stats/status"),
+    getCustomerAnalytics: () => request('/customers/analytics/overview'),
+    getCustomerStats: () => request('/customers/stats/overview'),
+
+    getUsers : () => request("/users"),
+    createUser: (body) => request("/users/create", {method: "POST", body}),
+    updateUser : (id, data) => request(`/users/${id}`, {method: 'PUT', data}),
+    deleteUser : (id) => request(`/users/${id}`)
 };

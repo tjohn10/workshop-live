@@ -11,6 +11,7 @@ import JobCreate from './pages/JobCreate'
 import Payments from './pages/Payments'
 import ProtectedRoute from './components/ProtectedRoute'
 import Dashboard from "./pages/Dashboard.jsx";
+import UserManagement from "./pages/UserManagement.jsx";
 
 export default function App(){
     return (
@@ -26,6 +27,8 @@ export default function App(){
                 <Route path="/jobs" element={<ProtectedRoute><Jobs/></ProtectedRoute>} />
                 <Route path="/jobs/create" element={<ProtectedRoute><JobCreate/></ProtectedRoute>} />
                 <Route path="/payments" element={<ProtectedRoute><Payments/></ProtectedRoute>} />
+                <Route path="/admin/users" element={<ProtectedRoute><UserManagement /></ProtectedRoute>} />
+
             </Routes>
         </Router>
     )
