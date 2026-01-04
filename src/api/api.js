@@ -1,6 +1,6 @@
 // src/api.js
 const API_BASE =
-    import.meta.env.VITE_API_BASE || "https://workshop-api-jurh.onrender.com/api";
+    import.meta.env.VITE_API_BASE || "https://workshopapi.nedstartech.com/api";
 
 /** Generic fetch wrapper */
 async function request(path, { method = "GET", body, raw = false } = {}) {
